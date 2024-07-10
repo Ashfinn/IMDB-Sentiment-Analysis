@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+import streamlit as st
 import pickle
 import re
 import nltk
@@ -28,19 +28,21 @@ def preprocess_text(text):
     words = [stemmer.stem(word) for word in words]
     return ' '.join(words)
 
-app = Flask(__name__, template_folder='../templates', static_folder='../static')
+processed_review = preprocess_text("Good")
+review_tfidf = tfidf_vectorizer.transform([processed_review])
+prediction = model.predict(review_tfidf)[0]
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+print(prediction)
+# Streamlit UI
+#st.title("IMDB Sentiment Analysis")
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    review = request.form['review']
-    processed_review = preprocess_text(review)
-    review_tfidf = tfidf_vectorizer.transform([processed_review])
-    prediction = model.predict(review_tfidf)[0]
-    return render_template('index.html', prediction=prediction)
+#review = st.text_area("Enter your review", height=200)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if st.button("Analyze"):
+#    if review:
+ #       processed_review = preprocess_text(review)
+#        review_tfidf = tfidf_vectorizer.transform([processed_review])
+ #       prediction = model.predict(review_tfidf)[0]
+ #       st.success(f"Sentiment Prediction: {'Positive' if prediction == 1 else 'Negative'}")
+ #   else:
+#st.warning("Please enter a review.")
