@@ -28,21 +28,75 @@ def preprocess_text(text):
     words = [stemmer.stem(word) for word in words]
     return ' '.join(words)
 
-processed_review = preprocess_text("Good")
-review_tfidf = tfidf_vectorizer.transform([processed_review])
-prediction = model.predict(review_tfidf)[0]
-
-print(prediction)
 # Streamlit UI
-#st.title("IMDB Sentiment Analysis")
+st.set_page_config(page_title="IMDB Sentiment Analysis", page_icon="🎬", layout="wide")
 
-#review = st.text_area("Enter your review", height=200)
+# Sidebar
+st.sidebar.header("About the App")
+st.sidebar.write("""
+This app uses a machine learning model to analyze the sentiment of your sentence. 
+Enter a sentence in the text box below and click "Analyze" to see the sentiment analysis.
+""")
 
-#if st.button("Analyze"):
-#    if review:
- #       processed_review = preprocess_text(review)
-#        review_tfidf = tfidf_vectorizer.transform([processed_review])
- #       prediction = model.predict(review_tfidf)[0]
- #       st.success(f"Sentiment Prediction: {'Positive' if prediction == 1 else 'Negative'}")
- #   else:
-#st.warning("Please enter a review.")
+st.sidebar.header("How it Works")
+st.sidebar.write("""
+1. The review is preprocessed to remove HTML tags, punctuation, and stopwords, and then stemmed.
+2. The preprocessed review is transformed into a TF-IDF vector.
+3. The model predicts the sentiment of the text.
+""")
+
+
+st.sidebar.header("About the Model")
+st.sidebar.write("""
+The model is trained on 50,000 IMDB movie reviews. So, using a review to test the app will have the most accurate outcome.
+""")
+
+# Add links to the sidebar
+st.sidebar.header("Useful Links")
+st.sidebar.markdown("[Link to the Notebook](https://github.com/Ashfinn/IMDB-Sentiment-Analysis/blob/main/notebook.ipynb)")
+st.sidebar.markdown("[GitHub Repository](https://github.com/Ashfinn/IMDB-Sentiment-Analysis)")
+st.sidebar.markdown("[Portfolio](https://ashfinn.github.io/)")
+
+# Main content
+st.title("IMDB Sentiment Analysis 🎬")
+st.write("Enter a movie review below to analyze its sentiment (positive or negative).")
+
+review = st.text_area("Enter your review", height=200)
+
+if st.button("Analyze"):
+    if review:
+        with st.spinner('Analyzing the sentiment...'):
+            processed_review = preprocess_text(review)
+            review_tfidf = tfidf_vectorizer.transform([processed_review])
+            sentiment = model.predict(review_tfidf)[0]
+            st.success(f"Sentiment Prediction: **{sentiment}**")
+    else:
+        st.warning("Please enter a review.")
+
+# Custom CSS to style the app
+st.markdown("""
+    <style>
+    .css-1d391kg {
+        max-width: 800px;
+        margin: auto;
+    }
+    .css-1aehpvz {
+        margin: auto;
+    }
+    .css-1d391kg h1 {
+        text-align: center;
+    }
+    .css-1d391kg textarea {
+        font-size: 16px;
+    }
+    .css-1d391kg button {
+        font-size: 18px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+    }
+    .css-1d391kg .stAlert {
+        text-align: center;
+    }
+    </style>
+    """, unsafe_allow_html=True)
