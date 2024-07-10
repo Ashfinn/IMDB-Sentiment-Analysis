@@ -7,8 +7,8 @@ from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 
 # Initialize NLTK tools
-nltk.download('punkt')
-nltk.download('stopwords')
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
 stop_words = set(stopwords.words('english'))
 stemmer = SnowballStemmer('english')
 
