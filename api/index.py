@@ -5,8 +5,6 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
 
 # Initialize NLTK tools
 nltk.download('punkt')
@@ -30,7 +28,7 @@ def preprocess_text(text):
     words = [stemmer.stem(word) for word in words]
     return ' '.join(words)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 @app.route('/')
 def home():

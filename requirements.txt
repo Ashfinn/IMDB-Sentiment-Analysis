@@ -1,0 +1,4 @@
+Flask==2.2.3
+nltk==3.8.1
+scikit-learn==1.2.2
+pandas==2.1.1
