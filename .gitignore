@@ -1,0 +1,9 @@
+# Virtual environment
+myenv/
+
+# Python specific
+*.pyc
+__pycache__/
+
+# Other
+.DS_Store
