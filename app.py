@@ -59,7 +59,7 @@ st.sidebar.markdown("[Portfolio](https://ashfinn.github.io/)")
 
 # Main content
 st.title("IMDB Sentiment Analysis 🎬")
-st.write("Enter a movie review below to analyze its sentiment (positive or negative).")
+st.write("Enter a text below to analyze its sentiment (positive or negative).")
 
 review = st.text_area("Enter your review", height=200)
 
