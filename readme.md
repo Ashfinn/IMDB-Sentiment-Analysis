@@ -1,6 +1,6 @@
 # IMDB Sentiment Analysis 🎬
 
-This Streamlit app uses a machine learning model to analyze the sentiment. This app is designed to predict the sentiment of your texts as either positive or negative. It uses a pre-trained machine learning model and a TF-IDF vectorizer trained on 50,000 IMDB reviews.
+This Streamlit app uses a machine learning model to analyze the sentiment of your moview review. This app is designed to predict the sentiment of your reviews as either positive or negative. It uses a pre-trained machine learning model and a TF-IDF vectorizer trained on 50,000 IMDB reviews.
 
 ## Features
 

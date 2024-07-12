@@ -34,21 +34,21 @@ st.set_page_config(page_title="IMDB Sentiment Analysis", page_icon="🎬", layou
 # Sidebar
 st.sidebar.header("About the App")
 st.sidebar.write("""
-This app uses a machine learning model to analyze the sentiment of your sentence. 
-Enter a sentence in the text box below and click "Analyze" to see the sentiment analysis.
+This app uses a machine learning model to analyze the sentiment of your movie review. 
+Enter a review in the text box below and click "Analyze" to see the sentiment analysis.
 """)
 
 st.sidebar.header("How it Works")
 st.sidebar.write("""
 1. The review is preprocessed to remove HTML tags, punctuation, and stopwords, and then stemmed.
 2. The preprocessed review is transformed into a TF-IDF vector.
-3. The model predicts the sentiment of the text.
+3. The model predicts the sentiment of the review.
 """)
 
 
 st.sidebar.header("About the Model")
 st.sidebar.write("""
-The model is trained on 50,000 IMDB movie reviews. So, using a review to test the app will have the most accurate outcome.
+The model is trained on 50,000 IMDB movie reviews. I am yet to optimize is further for accuracy. So, this might show some inaccuracies.
 """)
 
 # Add links to the sidebar
@@ -59,7 +59,7 @@ st.sidebar.markdown("[Portfolio](https://ashfinn.github.io/)")
 
 # Main content
 st.title("IMDB Sentiment Analysis 🎬")
-st.write("Enter a text below to analyze its sentiment (positive or negative).")
+st.write("Enter a review below to analyze its sentiment (positive or negative).")
 
 review = st.text_area("Enter your review", height=200)
 
