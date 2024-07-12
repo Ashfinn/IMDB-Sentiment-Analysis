@@ -48,7 +48,7 @@ st.sidebar.write("""
 
 st.sidebar.header("About the Model")
 st.sidebar.write("""
-The model is trained on 50,000 IMDB movie reviews. I am yet to optimize is further for accuracy. So, this might show some inaccuracies.
+The model is trained on 50,000 IMDB movie reviews. I am yet to optimize it. So, this might show some inaccuracies.
 """)
 
 # Add links to the sidebar
