@@ -1,35 +1,34 @@
 # IMDB Sentiment Analysis 🎬
 
-This Streamlit app uses a machine learning model to analyze the sentiment of your moview review. This app is designed to predict the sentiment of your reviews as either positive or negative. It uses a pre-trained machine learning model and a TF-IDF vectorizer trained on 50,000 IMDB reviews.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-380/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-brightgreen)](https://streamlit.io/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-0.24+-yellow)](https://scikit-learn.org/stable/)
+[![Forks](https://img.shields.io/github/forks/Ashfinn/IMDB-Sentiment-Analysis.svg)](https://github.com/Ashfinn/IMDB-Sentiment-Analysis/network/members)
+[![Stars](https://img.shields.io/github/stars/Ashfinn/IMDB-Sentiment-Analysis.svg)](https://github.com/Ashfinn/IMDB-Sentiment-Analysis/stargazers)
+
+This Streamlit app predicts the sentiment (positive/negative) of your movie reviews using a pre-trained machine learning model.
 
 ## Features
 
-- Preprocessing of text data
-- Sentiment analysis using a trained machine learning model
+- Text preprocessing (cleaning and stemming)
+- Sentiment prediction with a trained model
 - Web interface using Streamlit
-- Includes a Jupyter Notebook for model training and evaluation
+- Model training and evaluation in Jupyter Notebook
 
 ## How It Works
-1. **Preprocessing**: The input review is preprocessed to remove HTML tags, punctuation, and stopwords, and then stemmed.
-2. **TF-IDF Transformation**: The preprocessed review is transformed into a TF-IDF vector.
-3. **Prediction**: The model predicts the sentiment of the text based on the TF-IDF vector.
 
-## Jupyter Notebook
+1. **Preprocessing**: Cleans and stems the review text.
+2. **TF-IDF Vectorization**: Converts the text into numerical features.
+3. **Prediction**: Predicts sentiment using the pre-trained model.
 
-The [Notebook](notebook.ipynb) file contains the code for training and evaluating the sentiment analysis model. You can open and run this notebook to see how the model was developed.
+## Files
 
-## Project Structure
-- **app.py:** Main file for running the Streamlit web app.
-- **IMDB Dataset.csv:** Dataset used for training the model.
-- **model.pkl:** Trained sentiment analysis model.
-- **notebook.ipynb:** Jupyter Notebook with model training and evaluation code.
-- **requirements.txt:** List of required Python packages.
-- **tfidf_vectorizer.pkl:** TF-IDF vectorizer used for text preprocessing.
+- **app.py**: Runs the Streamlit app.
+- **model.pkl**: Pre-trained sentiment analysis model.
+- **tfidf_vectorizer.pkl**: TF-IDF vectorizer.
+- **notebook.ipynb**: Model training and evaluation.
+- **requirements.txt**: Dependencies.
 
 ## Contributing
-Contributions are welcome! Please fork the repository and use a feature branch. Pull requests are warmly welcome.
 
-## Acknowledgments
-- NLTK
-- scikit-learn
-- Streamlit
+Fork the repository and submit pull requests for new features or improvements.
